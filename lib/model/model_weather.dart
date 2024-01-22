@@ -9,7 +9,7 @@ class ModelWeather {
       required this.weatherTemp});
 
   factory ModelWeather.fromJson(json) => ModelWeather(
-      name: json["name"],
-      weatherDescription: json["weather"][0]["description"],
+      name: json["name"] ?? '',
+      weatherDescription: json["weather"][0]["description"] ?? '',
       weatherTemp: json["main"]["temp"] - 273.15);
 }

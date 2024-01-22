@@ -10,7 +10,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     on<WeatherSelectedCityEvent>((event, emit) async {
       emit(WeatherLoadingState());
       try {
-        ModelWeather dataWeather = await getDataWeather(event.cityName);
+        ModelWeather dataWeather =
+            await GetWeather().getDataWeather(event.cityName);
         emit(WeatherSelectedState(dataWeather));
       } on Exception {
         emit(WeatherErrorState());
